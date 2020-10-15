@@ -1,0 +1,113 @@
+body {
+  background-color: black ;
+}
+
+/* Des classes pour les différentes valeurs */
+
+/*.pers500 {
+    perspective: 200px;
+}*/
+
+/* On définit le div pour le conteneur, */
+/* le cube, ainsi qu'une face générique */
+ .container {
+    width: 200px;
+    height: 200px;
+    margin: 15%  auto;
+    border: none;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  backface-visibility: visible;
+  transform-origin: 100px 100px 0;
+  transform-style: preserve-3d;
+  animation: animate 10s ease-in-out infinite;
+}
+
+.face {
+   display: block;
+   position: absolute;
+   width: 200px;
+   height: 200px;
+   border: 1px solid;
+   line-height: 200px;
+   font-family: sans-serif;
+   font-size: 60px;
+   color: white;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* On définit chaque face en fonction de sa direction */
+ .front {
+   background: lightgrey;
+   transform: translateZ(100px);
+}
+
+.back {
+   background: lightgrey;
+   transform: rotateY(90deg) translateZ(100px);
+}
+
+.right {
+   background: lightgrey;
+   transform: rotateY(90deg) rotateX(90deg) translateZ(100px);
+}
+
+.left {
+   background: lightgrey;
+   transform: rotateY(180deg) rotateZ(90deg) translateZ(100px);
+}
+
+.top {
+   background: lightgrey;
+   transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px);
+}
+
+.bottom {
+   background: lightgrey;
+   transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes animate {
+  from, to {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  16%{
+    transform: rotateY(-90deg);
+  }
+  33%{
+    transform: rotateY(-180deg) rotateZ(90deg);
+  }
+  50%{
+    transform: rotateY(-180deg) rotateZ(90deg);
+  }
+  66%{
+    transform: rotateY(-270deg) rotateZ(90deg);
+  }
+  83%{
+    transform: rotateY(-270 deg) rotateZ(90deg);
+  }
+}
+
+.view_port {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.jetpack {
+  width: 125px;
+  animation: 3s ease-in 3s reverse both running move_eye;
+  transform: rotate(20deg);
+  color: white;
+}
+
+ @keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }
+
+
+
